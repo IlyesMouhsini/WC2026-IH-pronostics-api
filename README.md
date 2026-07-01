@@ -1,4 +1,4 @@
-# WC2026 Hub — API
+# WC2026 Hub - API
 
 API REST développée avec **Symfony 7**, back-end du projet [WC2026 Hub](https://github.com/IlyesMouhsini/WC2026-Intelligence-Hub) : elle centralise les données du tournoi (équipes, rencontres, scores) synchronisées depuis une API externe, et gère la couche communautaire de l'application (comptes utilisateurs, pronostics, classement).
 
