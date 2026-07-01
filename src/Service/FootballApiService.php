@@ -29,4 +29,21 @@ class FootballApiService
 
         return $data['teams'] ?? [];
     }
+
+    public function getRencontresCompetition(string $codeCompetition): array
+    {
+        $response = $this->httpClient->request('GET', $this->footballApiUrl . '/competitions/' . $codeCompetition . '/matches', [
+            'headers' => [
+                'X-Auth-Token' => $this->footballApiKey,
+            ],
+            'query' => [
+                'dateFrom' => '2026-06-01',
+                'dateTo' => '2026-07-25',
+            ],
+        ]);
+
+        $data = $response->toArray();
+
+        return $data['matches'] ?? [];
+    }
 }

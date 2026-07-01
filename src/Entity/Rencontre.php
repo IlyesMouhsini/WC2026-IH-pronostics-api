@@ -7,9 +7,12 @@ use App\Repository\RencontreRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiProperty;
 
 #[ORM\Entity(repositoryClass: RencontreRepository::class)]
-#[ApiResource]
+#[ApiResource(
+    paginationEnabled: false,
+)]
 class Rencontre
 {
     #[ORM\Id]
@@ -32,10 +35,12 @@ class Rencontre
     #[ORM\Column(length: 20)]
     private ?string $phase = null;
 
+    #[ApiProperty(readableLink: true, writableLink: false)]
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Equipe $equipeDomicile = null;
 
+    #[ApiProperty(readableLink: true, writableLink: false)]
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Equipe $equipeExterieur = null;
